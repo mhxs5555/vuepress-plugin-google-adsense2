@@ -9,12 +9,10 @@ declare global {
   }
 }
 
-declare const __DEV__: boolean;
-declare const __SSR__: boolean;
 declare const ADS_ID: string;
 
 export default defineClientAppEnhance(() => {
-  if (__DEV__ || __SSR__ || !ADS_ID) return;
+  if (!ADS_ID) return;
 
   // avoid duplicated import
   if (window.adsbygoogle) {
